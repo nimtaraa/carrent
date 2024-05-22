@@ -1,3 +1,4 @@
+import 'package:carrent/viewpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -178,13 +179,20 @@ class _homepageState extends State<homepage> {
             Positioned(
               top: 117,
               left: 10,
-              child: Container(
-                height: 170,
-                width: 244,
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: AssetImage("assetss/car1.png"),
-                        fit: BoxFit.contain)),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                    return viewpage();
+                  },));
+                },
+                child: Container(
+                  height: 170,
+                  width: 244,
+                  decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assetss/car1.png"),
+                          fit: BoxFit.contain)),
+                ),
               ),
             )
           ],
