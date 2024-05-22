@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "876854854042",
+    "project_id": "carrent-91634",
+    "storage_bucket": "carrent-91634.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876854854042:android:baf29f42b8257de512ba23",
+        "android_client_info": {
+          "package_name": "com.example.carrent"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1EVKIXU8zfJRA_WvBJQs2v7nV7lVsk6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876854854042:android:2dc1e124d069e1d512ba23",
+        "android_client_info": {
+          "package_name": "com.example.rent_a_car"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1EVKIXU8zfJRA_WvBJQs2v7nV7lVsk6A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
