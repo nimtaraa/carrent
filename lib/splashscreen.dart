@@ -1,3 +1,4 @@
+import 'package:carrent/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -34,7 +35,11 @@ class _spashscreenState extends State<spashscreen> {
                       backgroundColor: const Color.fromARGB(255, 230, 254, 88),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                      return homepage();
+                    },));
+                  },
                   child: Padding(
                     padding:
                         EdgeInsets.only(top: height / 80, bottom: height / 80),
