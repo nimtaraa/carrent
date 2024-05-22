@@ -3,7 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 class viewpage extends StatefulWidget {
-  const viewpage({super.key});
+  String uname;
+String lname;
+String image;
+String dh;
+int battery;
+String overview;
+String speed;
+String seat;
+   viewpage({
+        required this.uname,
+    required this.lname,
+    required this.image,
+    required this.dh,
+    required this.battery,
+    required this.overview,
+    required this.speed,
+    required this.seat,
+    
+    
+    super.key});
+
 
   @override
   State<viewpage> createState() => _viewpageState();
