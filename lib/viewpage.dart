@@ -96,7 +96,7 @@ class _viewpageState extends State<viewpage> {
                           width: 372,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage("assetss/car1.png"),
+                                  image: NetworkImage(widget.image),
                                   fit: BoxFit.contain)),
                         ),
                       )
@@ -108,13 +108,13 @@ class _viewpageState extends State<viewpage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    "Peugeot  ",
+                    "${widget.uname}  ",
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: width / 17,
                         fontWeight: FontWeight.bold),
                   ),
-                  Text("E208",
+                  Text(widget.lname,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: width / 17,
@@ -126,7 +126,7 @@ class _viewpageState extends State<viewpage> {
               ),
               Center(
                   child: Text(
-                "500 Dh / Day",
+                "${widget.dh} DH / DAY",
                 style: TextStyle(
                     color: const Color.fromARGB(255, 230, 254, 88),
                     fontSize: width / 20,
@@ -187,7 +187,7 @@ class _viewpageState extends State<viewpage> {
                                 child: Padding(
                                   padding: const EdgeInsets.all(8.0),
                                   child: Text(
-                                    "The engine power of 100 kW (136 hp) helps to ensure a wonderful driving experience on the road in a quiet and comfortable cocoon...",
+                                    widget.overview,
                                     style: TextStyle(
                                         color:
                                             Color.fromARGB(255, 255, 255, 255),
@@ -234,7 +234,7 @@ class _viewpageState extends State<viewpage> {
                                             ),
                                           ),
                                           Text(
-                                            "1800\n km",
+                                            "${widget.speed}\n km",
                                             style: TextStyle(
                                                 fontSize: width / 26,
                                                 color: Colors.white),
@@ -268,7 +268,7 @@ class _viewpageState extends State<viewpage> {
                                             ),
                                           ),
                                           Text(
-                                            "5\nseat",
+                                            "${widget.seat}\nseat",
                                             style: TextStyle(
                                                 fontSize: width / 26,
                                                 color: Colors.white),
@@ -302,7 +302,7 @@ class _viewpageState extends State<viewpage> {
                                             ),
                                           ),
                                           Text(
-                                            "50.0 kWh\n Battery",
+                                            "${widget.battery} kWh\n Battery",
                                             style: TextStyle(
                                                 fontSize: width / 26,
                                                 color: Colors.white),
