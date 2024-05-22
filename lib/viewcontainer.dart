@@ -3,26 +3,24 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class viewcontainer extends StatefulWidget {
-String uname;
-String lname;
-String image;
-String dh;
-int battery;
-String overview;
-String speed;
-String seat;
-   viewcontainer({
-    required this.uname,
-    required this.lname,
-    required this.image,
-    required this.dh,
-    required this.battery,
-    required this.overview,
-    required this.speed,
-    required this.seat,
-    
-    
-    super.key});
+  String uname;
+  String lname;
+  String image;
+  String dh;
+  int battery;
+  String overview;
+  String speed;
+  String seat;
+  viewcontainer(
+      {required this.uname,
+      required this.lname,
+      required this.image,
+      required this.dh,
+      required this.battery,
+      required this.overview,
+      required this.speed,
+      required this.seat,
+      super.key});
 
   @override
   State<viewcontainer> createState() => _viewcontainerState();
@@ -36,17 +34,19 @@ class _viewcontainerState extends State<viewcontainer> {
 
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder:(context) {
-          return viewpage(
-            uname: widget.uname, 
-            lname: widget.lname, 
-            image: widget.image, 
-            dh: widget.dh, 
-            battery: widget.battery, 
-            overview: widget.overview, 
-            speed: widget.speed, 
-            seat: widget.seat);
-        },));
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return viewpage(
+                uname: widget.uname,
+                lname: widget.lname,
+                image: widget.image,
+                dh: widget.dh,
+                battery: widget.battery,
+                overview: widget.overview,
+                speed: widget.speed,
+                seat: widget.seat);
+          },
+        ));
       },
       child: Stack(
         children: [
@@ -72,6 +72,7 @@ class _viewcontainerState extends State<viewcontainer> {
                         Text(
                           widget.uname,
                           style: TextStyle(
+                              fontFamily: "bebas",
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
                               fontSize: 24),
@@ -83,7 +84,8 @@ class _viewcontainerState extends State<viewcontainer> {
                               color: const Color.fromARGB(255, 19, 19, 19),
                               borderRadius: BorderRadius.circular(20)),
                           child: Center(
-                            child: Image.asset("assetss/material-symbols_star.png"),
+                            child: Image.asset(
+                                "assetss/material-symbols_star.png"),
                           ),
                         )
                       ],
@@ -91,6 +93,7 @@ class _viewcontainerState extends State<viewcontainer> {
                     Text(
                       widget.lname,
                       style: TextStyle(
+                          fontFamily: 'bebas',
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           fontSize: 24),
@@ -102,6 +105,7 @@ class _viewcontainerState extends State<viewcontainer> {
                         child: Text(
                       "${widget.dh} DH / DAY",
                       style: TextStyle(
+                          fontFamily: "bebas",
                           color: const Color.fromARGB(255, 230, 254, 88),
                           fontSize: 20),
                     ))
@@ -118,8 +122,7 @@ class _viewcontainerState extends State<viewcontainer> {
               width: 250,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(widget.image),
-                      fit: BoxFit.contain)),
+                      image: NetworkImage(widget.image), fit: BoxFit.contain)),
             ),
           )
         ],

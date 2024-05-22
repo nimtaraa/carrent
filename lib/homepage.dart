@@ -31,6 +31,7 @@ class _homepageState extends State<homepage> {
               child: Text(
             "Car Details",
             style: TextStyle(
+              fontFamily: "Segoe",
                 color: const Color.fromARGB(255, 230, 254, 88),
                 fontSize: width / 18),
           )),
@@ -106,8 +107,9 @@ class _homepageState extends State<homepage> {
                           Text(
                             "Available Cars",
                             style: TextStyle(
+                              fontFamily: "Segoe",
                               color: Colors.white,
-                              fontSize: width / 20,
+                              fontSize: width / 23,
                             ),
                           )
                         ],

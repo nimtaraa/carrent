@@ -48,6 +48,7 @@ class _viewpageState extends State<viewpage> {
             child: Text(
           "Car Details",
           style: TextStyle(
+            fontFamily: "Segoe",
               color: const Color.fromARGB(255, 230, 254, 88),
               fontSize: width / 18),
         )),
@@ -130,12 +131,14 @@ class _viewpageState extends State<viewpage> {
                   Text(
                     "${widget.uname}  ",
                     style: TextStyle(
+                      fontFamily: "Segoe",
                         color: Colors.white,
                         fontSize: width / 17,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(widget.lname,
                       style: TextStyle(
+                        fontFamily: "Segoe",
                           color: Colors.white,
                           fontSize: width / 17,
                           decoration: TextDecoration.underline,
@@ -148,6 +151,7 @@ class _viewpageState extends State<viewpage> {
                   child: Text(
                 "${widget.dh} DH / DAY",
                 style: TextStyle(
+                  fontFamily: "Segoe",
                     color: const Color.fromARGB(255, 230, 254, 88),
                     fontSize: width / 20,
                     fontWeight: FontWeight.bold),
@@ -197,6 +201,7 @@ class _viewpageState extends State<viewpage> {
                               Text(
                                 " Overview",
                                 style: TextStyle(
+                                  fontFamily: "Segoe",
                                     color: Colors.white, fontSize: width / 24),
                               ),
                               Container(
@@ -209,15 +214,17 @@ class _viewpageState extends State<viewpage> {
                                   child: Text(
                                     widget.overview,
                                     style: TextStyle(
+                                      fontFamily: "Segoe",
                                         color:
                                             Color.fromARGB(255, 255, 255, 255),
-                                        fontSize: width / 24),
+                                        fontSize: width / 26),
                                   ),
                                 ),
                               ),
                               Text(
                                 " Speciffication",
                                 style: TextStyle(
+                                  fontFamily: "Segoe",
                                     color: Colors.white, fontSize: width / 24),
                               ),
                               SizedBox(
@@ -256,6 +263,7 @@ class _viewpageState extends State<viewpage> {
                                           Text(
                                             "${widget.speed}\n km",
                                             style: TextStyle(
+                                              fontFamily: "Segoe",
                                                 fontSize: width / 26,
                                                 color: Colors.white),
                                           )
@@ -290,6 +298,7 @@ class _viewpageState extends State<viewpage> {
                                           Text(
                                             "${widget.seat}\nseat",
                                             style: TextStyle(
+                                              fontFamily: "Segoe",
                                                 fontSize: width / 26,
                                                 color: Colors.white),
                                           )
@@ -324,6 +333,7 @@ class _viewpageState extends State<viewpage> {
                                           Text(
                                             "${widget.battery} kWh\n Battery",
                                             style: TextStyle(
+                                              fontFamily: "Segoe",
                                                 fontSize: width / 26,
                                                 color: Colors.white),
                                           )
@@ -344,10 +354,10 @@ class _viewpageState extends State<viewpage> {
                         Container(
             width: width,
             child: Padding(
-              padding:  EdgeInsets.only(left: width/7,right: width/7,top: height/18),
+              padding:  EdgeInsets.only(left: width/18,right: width/18,top: height/18),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 230, 254, 88),
+                      backgroundColor: Color.fromARGB(49, 255, 255, 255),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25))),
                   onPressed: () {
@@ -357,7 +367,7 @@ class _viewpageState extends State<viewpage> {
                         EdgeInsets.only(top: height / 80, bottom: height / 80),
                     child: Text(
                       "Get Started",
-                      style: TextStyle(color: Colors.black, fontSize: width / 18,fontWeight: FontWeight.bold),
+                      style: TextStyle(color: Color.fromARGB(181, 255, 255, 255), fontSize: width / 25,fontWeight: FontWeight.bold),
                     ),
                   )),
             ),
