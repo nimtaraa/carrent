@@ -29,7 +29,35 @@ String seat;
   State<viewpage> createState() => _viewpageState();
 }
 
-class _viewpageState extends State<viewpage> {
+class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin{
+   late AnimationController _controller;
+  late Animation<Offset> _animation;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _controller = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    _animation = Tween<Offset>(
+      begin: Offset(1.0, 0.0),  // Start off-screen on the left
+      end: Offset(0.0, 0.0),    // End at the original position
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.easeInOut,
+    ));
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -111,16 +139,24 @@ class _viewpageState extends State<viewpage> {
                                 image: AssetImage("assetss/back.png"),
                                 fit: BoxFit.fill)),
                       ),
-                      Positioned(
-                        child: Container(
-                          height: 184,
-                          width: 372,
-                          decoration: BoxDecoration(
+
+                                            AnimatedPositioned(
+                        duration: const Duration(seconds: 1),
+                        curve: Curves.easeInOut,
+                        child: SlideTransition(
+                          position: _animation,
+                          child: Container(
+                            height: 184,
+                            width: 372,
+                            decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: NetworkImage(widget.image),
-                                  fit: BoxFit.contain)),
+                                image: NetworkImage(widget.image),
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -133,14 +169,14 @@ class _viewpageState extends State<viewpage> {
                     style: TextStyle(
                       fontFamily: "Segoe",
                         color: Colors.white,
-                        fontSize: width / 17,
+                        fontSize: width / 20,
                         fontWeight: FontWeight.bold),
                   ),
                   Text(widget.lname,
                       style: TextStyle(
                         fontFamily: "Segoe",
                           color: Colors.white,
-                          fontSize: width / 17,
+                          fontSize: width / 20,
                           decoration: TextDecoration.underline,
                           decorationColor:
                               const Color.fromARGB(255, 230, 254, 88),
@@ -153,7 +189,7 @@ class _viewpageState extends State<viewpage> {
                 style: TextStyle(
                   fontFamily: "Segoe",
                     color: const Color.fromARGB(255, 230, 254, 88),
-                    fontSize: width / 20,
+                    fontSize: width / 26,
                     fontWeight: FontWeight.bold),
               )),
               Padding(
