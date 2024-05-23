@@ -1,3 +1,4 @@
+import 'package:carrent/searchbar.dart';
 import 'package:carrent/viewcontainer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
@@ -63,7 +64,13 @@ class _homepageState extends State<homepage> {
                   label: "Favourite",
                 ),
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.search), label: "Search"),
+                    icon: GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                          return searchbar();
+                        },));
+                      },
+                      child: Icon(Icons.search)), label: "Search"),
                 BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home_outlined,
