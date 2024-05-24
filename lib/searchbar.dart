@@ -29,7 +29,7 @@ class _searchbarState extends State<searchbar> {
               padding: EdgeInsets.only(
                   right: width / 20, left: width / 20, top: height / 25),
               child: Container(
-                height: height / 13.62,
+                height: height / 17.62,
                 decoration: BoxDecoration(boxShadow: [
                   BoxShadow(
                       blurRadius: 2,
@@ -44,6 +44,7 @@ class _searchbarState extends State<searchbar> {
                   },
                   keyboardType: TextInputType.name,
                   cursorColor: const Color.fromARGB(255, 255, 255, 255),
+                  style: TextStyle(color: Colors.white,fontSize: width/27.5),
                   decoration: InputDecoration(
                       hintText: "Vehical Name",
                       prefixIcon: Icon(
@@ -52,7 +53,7 @@ class _searchbarState extends State<searchbar> {
                         size: width / 16.36,
                       ),
                       hintStyle:
-                          TextStyle(color: Color.fromARGB(255, 255, 255, 255), fontSize: width / 24.5),
+                          TextStyle(color: Color.fromARGB(151, 255, 255, 255), fontSize: width / 27.5),
                       focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(16),
                           borderSide: BorderSide(color: Color.fromARGB(255, 255, 255, 255))),
