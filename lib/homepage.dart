@@ -1,5 +1,6 @@
 import 'package:carrent/searchbar.dart';
 import 'package:carrent/viewcontainer.dart';
+import 'package:carrent/weeklyoffer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -97,7 +98,7 @@ class _homepageState extends State<homepage> {
                       alignment: Alignment.bottomLeft)),
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: EdgeInsets.only(left: width / 20, top: height / 30),
+                  padding: EdgeInsets.only(left: width / 20, top: height / 50),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -167,6 +168,36 @@ class _homepageState extends State<homepage> {
                         },
                        ),
                       ),
+                                               Row(
+                        children: [
+                          CircleAvatar(
+                            radius: 5,
+                            backgroundColor:
+                                const Color.fromARGB(255, 230, 254, 88),
+                          ),
+                          SizedBox(
+                            width: width / 40,
+                          ),
+                          Text(
+                            "Weekly Offer",
+                            style: TextStyle(
+                                                            fontFamily: "Segoe",
+
+                              color: Colors.white,
+                              fontSize: width / 20,
+                            ),
+                          )
+                        ],
+                      ),
+
+                                       SizedBox(height: height/30,),
+     
+
+                      Padding(
+                        padding:  EdgeInsets.only(right: 30,left: 12),
+                        child: weeklyoffer(),
+                      )
+
 
                     ],
                   ),
