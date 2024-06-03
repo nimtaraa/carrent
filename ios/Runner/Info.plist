@@ -2,6 +2,30 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>YOUR_REASON_FOR_LOCATION_PERMISSION</string>
+<key>io.flutter.embedded_views_preview</key>
+<true/>
+<key>GMSApiKey</key>
+<string>YOUR_API_KEY</string>
+
+<key>NSLocationWhenInUseUsageDescription</key>
+<string>Location permission is required to access current location.</string>
+<key>NSLocationAlwaysUsageDescription</key>
+<string>Location permission is required to access current location.</string>
+<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+<string>Location permission is required to access current location.</string>
+<key>NSLocationUsageDescription</key>
+<string>Location permission is required to access current location.</string>
+<key>NSLocationUsageDescription</key>
+<string>This app needs access to location services for accurate reporting.</string>
+<key>NSLocationUsageDescription</key>
+<string>We need access to your location for this feature to work.</string>
+<key>LSApplicationQueriesSchemes</key>
+<array>
+  <string>http</string>
+  <string>https</string>
+</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>

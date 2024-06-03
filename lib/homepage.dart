@@ -26,29 +26,40 @@ class _homepageState extends State<homepage> {
               onPressed: () {},
               icon: Icon(
                 Icons.arrow_back_ios,
-                color: const Color.fromARGB(255, 230, 254, 88),
+                color: const Color.fromARGB( 255, 0, 199, 213),
                 size: width / 18,
               )),
           title: Center(
-              child: Text(
-            "Car Details",
-            style: TextStyle(
-              fontFamily: "Segoe",
-                color: const Color.fromARGB(255, 230, 254, 88),
-                fontSize: width / 18),
-          )),
+              child: Container(
+                decoration: BoxDecoration(
+                                  color: Color.fromARGB(23, 0, 199, 213),
+
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                child: Padding(
+                  padding:  EdgeInsets.only(top:5,bottom: 5,left: 10,right: 10),
+                  child: Text(
+                              "Select your car",
+                              style: TextStyle(
+                              fontFamily: "bebas",
+                  fontWeight: FontWeight.w900,
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: width / 18),
+                            ),
+                ),
+              )),
           actions: [
             IconButton(
                 onPressed: () {},
                 icon: Icon(
                   Icons.arrow_forward_ios,
                   size: width / 20,
-                  color: const Color.fromARGB(255, 230, 254, 88),
+                  color: const Color.fromARGB( 255, 0, 199, 213),
                 ))
           ],
         ),
         bottomNavigationBar: Container(
-          height: height / 11,
+          height: height / 10,
           child: BottomNavigationBar(
               iconSize: width / 12,
               unselectedFontSize: width / 40,
@@ -64,21 +75,16 @@ class _homepageState extends State<homepage> {
                   ),
                   label: "Favourite",
                 ),
-                BottomNavigationBarItem(
-                    icon: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder:(context) {
-                          return searchbar();
-                        },));
-                      },
-                      child: Icon(Icons.search)), label: "Search"),
-                BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home_outlined,
-                    color: const Color.fromARGB(255, 230, 254, 88),
-                  ),
-                  label: "Home",
-                ),
+            BottomNavigationBarItem(icon: IconButton(onPressed:() {
+              Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                return searchbar();
+              },));
+            }, icon: Icon(Icons.search)), label: "Search"),
+            BottomNavigationBarItem(icon: IconButton(onPressed:() {
+              Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                return homepage();
+              },));
+            }, icon:Icon(Icons.home_outlined,color: const Color.fromARGB( 255, 0, 199, 213),)), label: "Home"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
                 BottomNavigationBarItem(
@@ -107,7 +113,7 @@ class _homepageState extends State<homepage> {
                           CircleAvatar(
                             radius: 5,
                             backgroundColor:
-                                const Color.fromARGB(255, 230, 254, 88),
+                                const Color.fromARGB( 255, 0, 199, 213),
                           ),
                           SizedBox(
                             width: width / 40,
@@ -152,7 +158,11 @@ class _homepageState extends State<homepage> {
                                   battery: vehicaldoc[index]['battery'], 
                                   overview: vehicaldoc[index]['overview'], 
                                   speed:vehicaldoc[index]['speed'],
-                                   seat: vehicaldoc[index]['seat'],
+                                   seat: vehicaldoc[index]['seat'], 
+                                   image2: vehicaldoc[index]['image2'], 
+                                   pimage: vehicaldoc[index]['pimage'], 
+                                   rating: vehicaldoc[index]['rating'], 
+                                   travelname: vehicaldoc[index]['travel name'],
                                 
                                 
                                   
@@ -173,7 +183,7 @@ class _homepageState extends State<homepage> {
                           CircleAvatar(
                             radius: 5,
                             backgroundColor:
-                                const Color.fromARGB(255, 230, 254, 88),
+                                const Color.fromARGB( 255, 0, 199, 213),
                           ),
                           SizedBox(
                             width: width / 40,

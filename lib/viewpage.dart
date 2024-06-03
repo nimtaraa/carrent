@@ -1,4 +1,8 @@
+import 'dart:ffi';
+
+import 'package:carrent/homepage.dart';
 import 'package:carrent/mappage.dart';
+import 'package:carrent/searchbar.dart';
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 
@@ -11,6 +15,10 @@ class viewpage extends StatefulWidget {
   String overview;
   String speed;
   String seat;
+    String image2;
+  String pimage;
+  String travelname;
+  int rating;
   viewpage({
     required this.uname,
     required this.lname,
@@ -20,6 +28,11 @@ class viewpage extends StatefulWidget {
     required this.overview,
     required this.speed,
     required this.seat,
+          required this.image2,
+      required this.pimage,
+      required this.rating,
+      required this.travelname,
+
     super.key
   });
 
@@ -41,7 +54,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
     );
 
     _animation = Tween<Offset>(
-      begin: Offset(1.0, 0.0),
+      begin: Offset(1.0, 0.5),
       end: Offset(0.0, 0.0),
     ).animate(CurvedAnimation(
       parent: _controller,
@@ -65,22 +78,35 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 20, 20, 20),
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+                            Navigator.of(context).pop();
+
+          },
           icon: Icon(
             Icons.arrow_back_ios,
-            color: const Color.fromARGB(255, 230, 254, 88),
+            color: const Color.fromARGB( 255, 0, 199, 213),
             size: width / 18,
           ),
         ),
         title: Center(
-          child: Text(
-            "Car Details",
-            style: TextStyle(
-              fontFamily: "Segoe",
-              color: const Color.fromARGB(255, 230, 254, 88),
-              fontSize: width / 18,
-            ),
-          ),
+          child: Container(
+                decoration: BoxDecoration(
+                                  color: Color.fromARGB(23, 0, 199, 213),
+
+                  borderRadius: BorderRadius.circular(20)
+                ),
+                child: Padding(
+                  padding:  EdgeInsets.only(top:5,bottom: 5,left: 10,right: 10),
+                  child: Text(
+                              "Select your car",
+                              style: TextStyle(
+                              fontFamily: "bebas",
+                  fontWeight: FontWeight.w900,
+                    color: Color.fromARGB(255, 255, 255, 255),
+                    fontSize: width / 18),
+                            ),
+                ),
+              )
         ),
         actions: [
           IconButton(
@@ -88,13 +114,13 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
             icon: Icon(
               Icons.arrow_forward_ios,
               size: width / 20,
-              color: const Color.fromARGB(255, 230, 254, 88),
+              color: const Color.fromARGB( 255, 0, 199, 213),
             ),
           ),
         ],
       ),
       bottomNavigationBar: Container(
-        height: height / 11,
+        height: height / 10,
         child: BottomNavigationBar(
           iconSize: width / 12,
           unselectedFontSize: width / 40,
@@ -107,12 +133,20 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.favorite_border,
-                color: const Color.fromARGB(255, 230, 254, 88),
+                color: const Color.fromARGB( 255, 0, 199, 213),
               ),
               label: "Favourite",
             ),
-            BottomNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
-            BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: "Home"),
+            BottomNavigationBarItem(icon: IconButton(onPressed:() {
+              Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                return searchbar();
+              },));
+            }, icon: Icon(Icons.search)), label: "Search"),
+            BottomNavigationBarItem(icon: IconButton(onPressed:() {
+              Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                return homepage();
+              },));
+            }, icon:Icon(Icons.home_outlined)), label: "Home"),
             BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
             BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
           ],
@@ -140,7 +174,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                     children: [
                       Container(
                         height: 179,
-                        width: 278,
+                        width: 298,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage("assetss/back.png"),
@@ -188,7 +222,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                       color: Colors.white,
                       fontSize: width / 20,
                       decoration: TextDecoration.underline,
-                      decorationColor: const Color.fromARGB(255, 230, 254, 88),
+                      decorationColor: const Color.fromARGB( 255, 0, 199, 213),
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -196,10 +230,10 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
               ),
               Center(
                 child: Text(
-                  "${widget.dh} DH / DAY",
+                  "${widget.dh} LKR / DAY",
                   style: TextStyle(
                     fontFamily: "Segoe",
-                    color: const Color.fromARGB(255, 230, 254, 88),
+                    color: const Color.fromARGB( 255, 0, 199, 213),
                     fontSize: width / 26,
                     fontWeight: FontWeight.bold,
                   ),
@@ -219,7 +253,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                               bottom: 0,
                               child: CircleAvatar(
                                 radius: 5,
-                                backgroundColor: const Color.fromARGB(255, 230, 254, 88),
+                                backgroundColor: const Color.fromARGB( 255, 0, 199, 213),
                               ),
                             ),
                             Container(
@@ -231,7 +265,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                               bottom: 0,
                               child: CircleAvatar(
                                 radius: 5,
-                                backgroundColor: const Color.fromARGB(255, 230, 254, 88),
+                                backgroundColor: const Color.fromARGB( 255, 0, 199, 213),
                               ),
                             ),
                             Container(
@@ -299,7 +333,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color: const Color.fromARGB(255, 230, 254, 88),
+                                                color: const Color.fromARGB( 255, 0, 199, 213),
                                                 width: 2,
                                               ),
                                             ),
@@ -337,7 +371,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color: const Color.fromARGB(255, 230, 254, 88),
+                                                color: const Color.fromARGB( 255, 0, 199, 213),
                                                 width: 2,
                                               ),
                                             ),
@@ -375,7 +409,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
                                               border: Border.all(
-                                                color: const Color.fromARGB(255, 230, 254, 88),
+                                                color: const Color.fromARGB( 255, 0, 199, 213),
                                                 width: 2,
                                               ),
                                             ),
@@ -418,6 +452,7 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                 child: Padding(
                   padding: EdgeInsets.only(left: width / 18, right: width / 18, top: height / 18),
                   child: ElevatedButton(
+                    
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Color.fromARGB(49, 255, 255, 255),
                       shape: RoundedRectangleBorder(
@@ -430,7 +465,14 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                         context,
                         MaterialPageRoute(
                           builder: (context) => MapPage(
-                            location: LatLng(7.2976012, 81.6706738), // Sample location
+                            location: LatLng(7.2976012, 81.6706738), 
+                            dh: widget.dh, 
+                            image2: widget.image2, 
+                            lname: widget.lname, 
+                            pimage: widget.pimage, 
+                            rating: widget.rating, 
+                            travelname: widget.travelname, 
+                            uname: widget.uname, // Sample location
                           ),
                         ),
                       );

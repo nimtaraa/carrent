@@ -32,7 +32,7 @@ class _spashscreenState extends State<spashscreen> {
               padding:  EdgeInsets.only(left: width/7,right: width/7),
               child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(255, 230, 254, 88),
+                      backgroundColor: const Color.fromARGB( 255, 0, 199, 213),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25))),
                   onPressed: () {
@@ -59,7 +59,7 @@ class _spashscreenState extends State<spashscreen> {
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.transparent,
                       side: BorderSide(
-                          color: const Color.fromARGB(255, 230, 254, 88)),
+                          color: const Color.fromARGB( 255, 0, 199, 213)),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30))),
                   onPressed: () {},
@@ -69,7 +69,7 @@ class _spashscreenState extends State<spashscreen> {
                     child: Text(
                       "Continue With Email",
                       style: TextStyle(
-                          color: const Color.fromARGB(255, 230, 254, 88),
+                          color: const Color.fromARGB( 255, 0, 199, 213),
                           fontSize: width / 20),
                     ),
                   )),

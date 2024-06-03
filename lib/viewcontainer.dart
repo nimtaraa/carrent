@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:carrent/viewpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +13,10 @@ class viewcontainer extends StatefulWidget {
   String overview;
   String speed;
   String seat;
+  String image2;
+  String pimage;
+  String travelname;
+  int rating;
   viewcontainer(
       {required this.uname,
       required this.lname,
@@ -20,6 +26,10 @@ class viewcontainer extends StatefulWidget {
       required this.overview,
       required this.speed,
       required this.seat,
+      required this.image2,
+      required this.pimage,
+      required this.rating,
+      required this.travelname,
       super.key});
 
   @override
@@ -44,7 +54,14 @@ class _viewcontainerState extends State<viewcontainer> {
                 battery: widget.battery,
                 overview: widget.overview,
                 speed: widget.speed,
-                seat: widget.seat);
+                seat: widget.seat,
+                 image2: widget.image2,
+                  pimage: widget.pimage, 
+                  rating: widget.rating, 
+                  travelname: widget.travelname,
+                 
+                 
+                 );
           },
         ));
       },
@@ -103,10 +120,10 @@ class _viewcontainerState extends State<viewcontainer> {
                     ),
                     Center(
                         child: Text(
-                      "${widget.dh} DH / DAY",
+                      "${widget.dh} LKR / DAY",
                       style: TextStyle(
                           fontFamily: "bebas",
-                          color: const Color.fromARGB(255, 230, 254, 88),
+                          color: const Color.fromARGB( 255, 0, 199, 213),
                           fontSize: 20),
                     ))
                   ],

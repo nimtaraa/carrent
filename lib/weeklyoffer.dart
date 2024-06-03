@@ -19,8 +19,6 @@ class _weeklyofferState extends State<weeklyoffer> {
         height: 170,
         decoration: BoxDecoration(
           image: DecorationImage(image: AssetImage("assetss/Rectangle 54.png"),fit: BoxFit.fill),
-          
-        
         ),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -35,15 +33,14 @@ class _weeklyofferState extends State<weeklyoffer> {
         ),
         Padding(
           padding: const EdgeInsets.only(top: 15,right: 20),
-          child: Text("900 Dh / Day",style: TextStyle(
+          child: Text("7500 LKR / Day",style: TextStyle(
                                           fontFamily: "bebas",
 
-            fontSize: 20,color: const Color.fromARGB(255, 184, 165, 0),fontWeight: FontWeight.bold),),
+            fontSize: 20,color: const Color.fromARGB( 255, 0, 199, 213),fontWeight: FontWeight.bold),),
         )
           ],
         ),
         ),
-
         Positioned(
           top: 20,
           left: 40,
