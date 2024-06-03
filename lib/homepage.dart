@@ -162,7 +162,9 @@ class _homepageState extends State<homepage> {
                                    image2: vehicaldoc[index]['image2'], 
                                    pimage: vehicaldoc[index]['pimage'], 
                                    rating: vehicaldoc[index]['rating'], 
-                                   travelname: vehicaldoc[index]['travel name'],
+                                   travelname: vehicaldoc[index]['travel name'], 
+                                   x: vehicaldoc[index]['x'],
+                                    y: vehicaldoc[index]['y'],
                                 
                                 
                                   

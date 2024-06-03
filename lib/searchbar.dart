@@ -1,3 +1,4 @@
+import 'package:carrent/homepage.dart';
 import 'package:carrent/itemcontainer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
@@ -20,6 +21,39 @@ class _searchbarState extends State<searchbar> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
  backgroundColor: Color.fromARGB(239, 10, 10, 10),
+         bottomNavigationBar: Container(
+          height: height / 10,
+          child: BottomNavigationBar(
+              iconSize: width / 12,
+              unselectedFontSize: width / 40,
+              selectedFontSize: width / 40,
+              type: BottomNavigationBarType.fixed,
+              backgroundColor: Color.fromARGB(255, 20, 20, 20),
+              selectedItemColor: const Color.fromARGB(255, 157, 178, 206),
+              unselectedItemColor: const Color.fromARGB(255, 157, 178, 206),
+              items: [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.favorite_border,
+                  ),
+                  label: "Favourite",
+                ),
+            BottomNavigationBarItem(icon: IconButton(onPressed:() {
+              Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                return searchbar();
+              },));
+            }, icon: Icon(Icons.search,color: const Color.fromARGB( 255, 0, 199, 213),)), label: "Search"),
+            BottomNavigationBarItem(icon: IconButton(onPressed:() {
+              Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                return homepage();
+              },));
+            }, icon:Icon(Icons.home_outlined,)), label: "Home"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.shopping_cart_outlined), label: "Cart"),
+                BottomNavigationBarItem(
+                    icon: Icon(Icons.person), label: "Profile"),
+              ]),
+        ),
        body: Stack(
          children: [
            Container(
@@ -38,7 +72,7 @@ class _searchbarState extends State<searchbar> {
                 children: [
                   Padding(
                     padding: EdgeInsets.only(
-                        right: width / 20, left: width / 20, top: height / 25),
+                        right: width / 20, left: width / 20, top: height / 15),
                     child: Container(
                       height: height / 17.62,
                       decoration: BoxDecoration(boxShadow: [
@@ -77,9 +111,9 @@ class _searchbarState extends State<searchbar> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(
-                        right: width / 20, left: width / 20, top: height / 30),
+                        right: width / 20, left: width / 20, top: height / 90),
                     child: Container(
-                      height: height / 1.6,
+                      height: height / 1.4,
                       child: StreamBuilder<QuerySnapshot>(
                         stream: FirebaseFirestore.instance
                             .collection("vehicals")
@@ -101,13 +135,16 @@ class _searchbarState extends State<searchbar> {
                           return ListView.builder(
                             itemCount: vehicaldoc1.length,
                             itemBuilder: (context, index) {
-                              return itemcontainer(
-                                uname: vehicaldoc1[index]['uname'],
-                                lname: vehicaldoc1[index]['lname'],
-                                image: vehicaldoc1[index]['image'],
-                                battery: vehicaldoc1[index]['battery'],
-                                speed: vehicaldoc1[index]['speed'],
-                                seat: vehicaldoc1[index]['seat'], dh: vehicaldoc1[index]['dh value'],
+                              return Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: ItemContainer(
+                                  uname: vehicaldoc1[index]['uname'],
+                                  lname: vehicaldoc1[index]['lname'],
+                                  image: vehicaldoc1[index]['image'],
+                                  battery: vehicaldoc1[index]['battery'],
+                                  speed: vehicaldoc1[index]['speed'],
+                                  seat: vehicaldoc1[index]['seat'], dh: vehicaldoc1[index]['dh value'],
+                                ),
                               );
                             },
                           );

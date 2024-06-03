@@ -19,6 +19,8 @@ class viewpage extends StatefulWidget {
   String pimage;
   String travelname;
   int rating;
+  double x;
+  double y;
   viewpage({
     required this.uname,
     required this.lname,
@@ -32,6 +34,9 @@ class viewpage extends StatefulWidget {
       required this.pimage,
       required this.rating,
       required this.travelname,
+      required this.x,
+      required this.y,
+    
 
     super.key
   });
@@ -465,14 +470,15 @@ class _viewpageState extends State<viewpage> with SingleTickerProviderStateMixin
                         context,
                         MaterialPageRoute(
                           builder: (context) => MapPage(
-                            location: LatLng(7.2976012, 81.6706738), 
+                            location: LatLng(widget.x, widget.y), 
                             dh: widget.dh, 
                             image2: widget.image2, 
                             lname: widget.lname, 
                             pimage: widget.pimage, 
                             rating: widget.rating, 
                             travelname: widget.travelname, 
-                            uname: widget.uname, // Sample location
+                            uname: widget.uname, 
+                            image: widget.image, // Sample location
                           ),
                         ),
                       );

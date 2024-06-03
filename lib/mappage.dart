@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -6,6 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class MapPage extends StatelessWidget {
 String image2;
+String image;
 String pimage;
 String uname;
 String lname;
@@ -20,7 +22,7 @@ int rating;
   MapPage({
     
     
-    
+    required this.image,
     required this.location,
     required this.dh,
     required this.image2,
@@ -221,13 +223,18 @@ int rating;
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Container(
-                          height: 100,
-                          width: 80,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            image: DecorationImage(
-                                image: NetworkImage(pimage),fit: BoxFit.fill),
+                        GestureDetector(
+                          onTap: () {
+                 
+                          },
+                          child: Container(
+                            height: 100,
+                            width: 80,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: DecorationImage(
+                                  image: NetworkImage(pimage),fit: BoxFit.fill),
+                            ),
                           ),
                         ),
                         SizedBox(width: 10),

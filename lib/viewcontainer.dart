@@ -17,6 +17,8 @@ class viewcontainer extends StatefulWidget {
   String pimage;
   String travelname;
   int rating;
+  double x;
+  double y;
   viewcontainer(
       {required this.uname,
       required this.lname,
@@ -30,6 +32,8 @@ class viewcontainer extends StatefulWidget {
       required this.pimage,
       required this.rating,
       required this.travelname,
+      required this.x,
+      required this.y,
       super.key});
 
   @override
@@ -58,7 +62,9 @@ class _viewcontainerState extends State<viewcontainer> {
                  image2: widget.image2,
                   pimage: widget.pimage, 
                   rating: widget.rating, 
-                  travelname: widget.travelname,
+                  travelname: widget.travelname, 
+                  x: widget.x, 
+                  y: widget.y,
                  
                  
                  );
