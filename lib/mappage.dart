@@ -242,6 +242,8 @@ int rating;
                                     Text(
                                       travelname,
                                       style: TextStyle(
+                                                                      fontFamily: "bebas",
+
                                           color: Colors.white, fontSize: 20),
                                     ),
                                     Text(
