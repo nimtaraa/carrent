@@ -1,3 +1,4 @@
+import 'package:carrent/chat.dart';
 import 'package:carrent/homepage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +63,11 @@ class _spashscreenState extends State<spashscreen> {
                           color: const Color.fromARGB( 255, 0, 199, 213)),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30))),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(builder:(context) {
+                      return chat();
+                    },));
+                  },
                   child: Padding(
                     padding:
                         EdgeInsets.only(top: height / 80, bottom: height / 80),
